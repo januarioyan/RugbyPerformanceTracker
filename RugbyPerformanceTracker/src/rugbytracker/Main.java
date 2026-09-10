@@ -9,10 +9,22 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ArrayList<TrainingSession> trainingHistory = new ArrayList<>();
-        String choice;   
+        String choice = null; 
+        int menuChoice;
         Scanner input = new Scanner(System.in);
         
-                do {
+        System.out.println("\n=== Rugby Performance Tracker ===");
+        System.out.println("1. Add Training Session");
+        System.out.println("2. View Training History");
+        System.out.println("3. Exit");
+        System.out.print("Choose an option: ");
+        
+        menuChoice = input.nextInt();
+        input.nextLine();
+        if (menuChoice == 1) {
+        
+ do { 
+        // your current input session code is below this
         
         System.out.print("Enter name: ");
         String name = input.nextLine();
@@ -47,11 +59,19 @@ public class Main {
         System.out.print("Add another session? (yes/no): ");
         choice = input.nextLine();
         
-                } while (choice.equalsIgnoreCase("yes"));
-        
-        for(TrainingSession session : trainingHistory) {
-            session.displaySession();
-        } 
-
+ } while (choice.equalsIgnoreCase("yes"));
+        }
+        else if (menuChoice == 2) {
+            
+            System.out.println("\n=== Training History ===");
+            
+            for (TrainingSession session : trainingHistory) {
+                session.displaySession();
+                System.out.println();
+            }
+        }
+        else if (menuChoice == 3) {
+            System.out.println("Exiting Rugby Performance Tracker.");
+        }
     }
 } 
