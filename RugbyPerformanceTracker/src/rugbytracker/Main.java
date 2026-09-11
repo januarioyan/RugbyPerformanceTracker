@@ -13,6 +13,8 @@ public class Main {
         int menuChoice;
         Scanner input = new Scanner(System.in);
         
+        do { 
+        
         System.out.println("\n=== Rugby Performance Tracker ===");
         System.out.println("1. Add Training Session");
         System.out.println("2. View Training History");
@@ -61,17 +63,25 @@ public class Main {
         
  } while (choice.equalsIgnoreCase("yes"));
         }
-        else if (menuChoice == 2) {
+        else if (menuChoice == 2) { 
             
-            System.out.println("\n=== Training History ===");
+            System.out.println("\n== Training History ===");
             
-            for (TrainingSession session : trainingHistory) {
-                session.displaySession();
-                System.out.println();
+            if (trainingHistory.isEmpty()) {
+                System.out.println("No training sessions recorded yet.");
+            } else { 
+                for (TrainingSession session : trainingHistory) {
+                    session.displaySession();
+                    System.out.println();
+                }
             }
         }
         else if (menuChoice == 3) {
             System.out.println("Exiting Rugby Performance Tracker.");
+        
         }
+        
+   } while (menuChoice != 3);
+        
     }
 } 
